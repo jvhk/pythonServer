@@ -2,7 +2,7 @@ import socket
 from os import system
 
 ip = '0.0.0.0' #pega o endereço ip da maquina que está rodando
-port = 677 #numero de uma porta maior aleatoria
+port = 678 #numero de uma porta maior aleatoria
 server = socket.socket(socket.AF_INET,socket.SOCK_STREAM) #o server será do tipo tcp/ip
 
 try:
@@ -18,8 +18,8 @@ try:
         msg = msg[:-1]
         print(msg)
         #implementando funcoes do server
-        if msg == 'ls':
-            print (os.system(msg))  #this line is not working
+        if msg == bytes('ls','utf-8'):
+            print (system(msg))
         else:
             print ("Invalid command")
 
